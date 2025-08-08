@@ -28,10 +28,10 @@ Check node resource usage on SLURM cluster
     ```
 ## **Usage**
 
-1.help:
+1. help:
 
     ```bash
-    nodecheck -h 
+    nodecheck --help/-h
     ```
 2. show the resource on node <peb(default), long, gpu, work>:
 
