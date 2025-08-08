@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# »ñÈ¡ src ½Å±¾Â·¾¶
+# access src 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/../src" && pwd)"
 
 show_help() {
@@ -11,11 +11,11 @@ show_help() {
     echo "  nodecheck -h|--help       Show this help message"
 }
 
-# ¼ì²éÊÇ·ñÊÇ -h »ò --help ²ÎÊı
+# detect -h 
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then
     show_help
     exit 0
 fi
 
-# Ö´ĞĞÊµ¼ÊµÄ nodecheck ½Å±¾£¬´«ÈëËùÓĞ²ÎÊı
+# æ‰§è¡Œå®é™…çš„ nodecheck è„šæœ¬ï¼Œä¼ å…¥æ‰€æœ‰å‚æ•°
 "$script_dir/nodecheck.sh" "$@"
