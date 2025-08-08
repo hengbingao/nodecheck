@@ -17,8 +17,8 @@ Check node resource usage on SLURM cluster
 
     ```bash
     cd nodecheck
-    chmod +x $nodecheck/bin/*
-    chmod +x $nodecheck/src/*
+    chmod +x ./bin/*
+    chmod +x ./src/*
     ```
 
 3. Add to environment:
