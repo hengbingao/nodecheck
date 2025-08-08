@@ -1,7 +1,7 @@
 # nodecheck
 Check node resource usage on SLURM cluster
 
-![trash files](https://github.com/hengbingao/trash/blob/main/png/trash.png)
+![trash files](https://github.com/hengbingao/nodecheck/blob/main/png/nodecheck.png)
 
 
 
@@ -10,38 +10,33 @@ Check node resource usage on SLURM cluster
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/hengbingao/trash.git
+    git clone https://github.com/hengbingao/nodecheck.git
     ```
 
 2. Set the executable permissions:
 
     ```bash
-    chmod +x $trash/bin/*
-    chmod +x $trash/src/*
+    chmod +x $nodecheck/bin/*
+    chmod +x $nodecheck/src/*
     ```
 
 3. Add to environment:
 
     ```bash
-    echo 'export PATH=$PATH:$trash/bin' >> ~/.bashrc
+    echo 'export PATH=$PATH:$nodecheck/bin' >> ~/.bashrc
     source ~/.bashrc
     ```
 ## **Usage**
 
 
-1. build trash files:
+1.help:
 
     ```bash
-    mkdir -p $MYGROUP/trash 
+    nodecheck -h 
     ```
 
-2. move files to trash:
+2. show the resource on node <peb(default), long, gpu, work>:
 
     ```bash
-    trash go Move specified files to $MYGROUP/trash 
-    ```
-3. clean trash:
-
-    ```bash
-    trash clean Clean all files under $MYGROUP/trash 
+    nodecheck long 
     ```
