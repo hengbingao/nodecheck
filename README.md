@@ -24,7 +24,7 @@ Check node resource usage on SLURM cluster
 3. Add to environment:
 
     ```bash
-    echo 'export PATH=$PATH:$nodecheck/bin' >> ~/.bashrc
+    echo "export PATH=\$PATH:$(pwd)/bin" >> ~/.bashrc
     source ~/.bashrc
     ```
 ## **Usage**
