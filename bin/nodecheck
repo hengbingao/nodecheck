@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# 获取 src 脚本路径
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/../src" && pwd)"
+
+show_help() {
+    echo "nodecheck - Check node resource usage on SLURM cluster"
+    echo
+    echo "Usage:"
+    echo "  nodecheck [partition]     Show jobs and node info (default partition: peb)"
+    echo "  nodecheck -h|--help       Show this help message"
+}
+
+# 检查是否是 -h 或 --help 参数
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+    show_help
+    exit 0
+fi
+
+# 执行实际的 nodecheck 脚本，传入所有参数
+"$script_dir/nodecheck.sh" "$@"
