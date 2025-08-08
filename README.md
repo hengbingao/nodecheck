@@ -16,6 +16,7 @@ Check node resource usage on SLURM cluster
 2. Set the executable permissions:
 
     ```bash
+    cd nodecheck
     chmod +x $nodecheck/bin/*
     chmod +x $nodecheck/src/*
     ```
