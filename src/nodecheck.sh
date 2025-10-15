@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
-partition=${1:-peb} # Ä¬ÈÏ·ÖÇøÃûÎª peb
+partition=${1:-ll} # é»˜è®¤åˆ†åŒºåä¸º ll
 
 echo "=== JOBS ON ${partition^^} PARTITION ==="
 
-# ´òÓ¡±íÍ·
+# æ‰“å°è¡¨å¤´
 printf "%-10s %-10s %-20s %-10s %-3s %-10s %-6s %-10s %-10s %-20s\n" \
   "JOBID" "PARTITION" "NAME" "USER" "ST" "TIME" "CPUS" "REQ_MEM" "TIME_LIMIT" "NODELIST(REASON)"
 
-# »ñÈ¡¸Ã·ÖÇøµÄËùÓĞ job ID
+# è·å–è¯¥åˆ†åŒºçš„æ‰€æœ‰ job ID
 job_ids=$(squeue -p "$partition" -h -o "%i")
 for jobid in $job_ids; do
   job_info=$(scontrol show job "$jobid" 2>/dev/null)
@@ -31,7 +31,7 @@ done
 
 echo
 
-# »ñÈ¡¸Ã·ÖÇøµÄËùÓĞ½Úµã
+# è·å–è¯¥åˆ†åŒºçš„æ‰€æœ‰èŠ‚ç‚¹
 nodes=$(squeue -p "$partition" -h -o "%N" | tr ',' '\n' | sort -u)
 
 if [ -z "$nodes" ]; then
@@ -49,7 +49,7 @@ for node in $nodes; do
     continue
   fi
 
-  # ÌáÈ¡×Ö¶Î
+  # æå–å­—æ®µ
   state=$(echo "$node_info" | awk -F= '/State=/{print $2}' | awk '{print $1}')
   cpu_alloc=$(echo "$node_info" | grep -oP 'CPUAlloc=\K[0-9]+')
   cpu_total=$(echo "$node_info" | grep -oP 'CPUTot=\K[0-9]+')
@@ -58,7 +58,7 @@ for node in $nodes; do
   mem_free=$(echo "$node_info" | grep -oP 'FreeMem=\K[0-9]+')
   load=$(echo "$node_info" | grep -oP 'CPULoad=\K[0-9.]+')
 
-  # ÄÚ´æµ¥Î»»»ËãÎª GB
+  # å†…å­˜å•ä½æ¢ç®—ä¸º GB
   mem_alloc_gb=$((mem_alloc / 1000))
   mem_total_gb=$((mem_total / 1000))
   mem_free_gb=$((mem_free / 1000))
