@@ -7,7 +7,7 @@ show_help() {
     echo "nodecheck - Check node resource usage on SLURM cluster"
     echo
     echo "Usage:"
-    echo "  nodecheck [partition]     Show jobs and node info (default partition: peb)"
+    echo "  nodecheck [partition]     Show jobs and node info (default partition: ll)"
     echo "  nodecheck -h|--help       Show this help message"
 }
 
